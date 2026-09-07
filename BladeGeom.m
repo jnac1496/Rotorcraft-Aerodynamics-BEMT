@@ -6,15 +6,17 @@ function geometry = BladeGeom(ro, R, co, lambda, Dtheta, Nb, q, p, n)
 % lambda : tapper ratio (scalar)
 % Dtheta : Delta theta between tip and root pitch (negative scalar) [deg]
 % Nb : number of blades (scalar)
-% q : chord distribution 5th order Bezier curve control points (vector ascendin
+% q : chord distribution 5th order Bezier curve control points (vector
+% ascending
 % order of size 1x4)
-% p : twist distribution 5th order Bezier curve control points (vector ascendin
+% p : twist distribution 5th order Bezier curve control points (vector
+% ascending
 % order of size 1x4)
-% n : number of blade elements for BEM
+% n : number of blade elements for BEMT
 
 % OUTPUTS
 % geometry.y : the span coordinates from the root cut-out for all the elements 
-% and its's midpoints (vector of size 1x2*n+1) [m]
+% and it's midpoints (vector of size 1x2*n+1) [m]
 % geometry.c : the chord at distribution at every point of y (vector of size
 % 1x2*n+1) [m]
 % geometry.thetaTwist : twist distribution at every point of y (vector of size
@@ -39,7 +41,7 @@ y = linspace(ro,R,2*n+1); %ro:dy/2:R;
 
 s = (y -ro)./(R - ro); % Bezier function variable
 
-% Implement Bezier curve for distribitions
+% Implement Bezier curve for distributions
 q = [0 q 1];
 p = [0 p 1];
 Bord = length(q)-1; % order of Bezier function 
